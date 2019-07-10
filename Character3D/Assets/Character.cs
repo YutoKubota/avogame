@@ -21,7 +21,7 @@ public class Character : MonoBehaviour {
         this.y = y;
     }
 
-    /*
+    
     public string Name
     {
         get
@@ -58,7 +58,7 @@ public class Character : MonoBehaviour {
             return this.y;
         }
     }
-    */
+    
 
     public void Attack(Character c)
     {
