@@ -76,7 +76,7 @@ public class Character : MonoBehaviour {
     }
     public void Damage(int damage)
     {
-        this.hp -= damage;
+        hp -= damage;
         Debug.Log(damage + "のダメージを受けた");
         if (this.hp <= 0)
         {
