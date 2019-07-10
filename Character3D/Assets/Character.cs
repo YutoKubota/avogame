@@ -11,6 +11,7 @@ public class Character : MonoBehaviour {
     private int x;      //X座標
     private int y;      //Y座標
     private int z;      //z座標
+    public Slider HpSlider;
 
     public Character(string name, int hp, int power, int x, int y, int z)
     {
@@ -77,6 +78,7 @@ public class Character : MonoBehaviour {
     public void Damage(int damage)
     {
         hp -= damage;
+        HpSlider.value = hp;
         Debug.Log(damage + "のダメージを受けた");
         if (this.hp <= 0)
         {
