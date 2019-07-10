@@ -7,7 +7,7 @@ public class Enemy : Character
 
     Enemy(string name, int hp, int power, int x, int y, int z) : base(name, hp, power, x, y, z)
     {
-  GameObject(igaguri)
+  //GameObject(igaguri)
     }
 
     // Use this for initialization
