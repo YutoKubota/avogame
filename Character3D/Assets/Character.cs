@@ -8,9 +8,9 @@ public class Character : MonoBehaviour {
     private int hp;
     private int M_hp;   // 最大体力
     private int power;  // 攻撃力
-    private int x;      //X座標
-    private int y;      //Y座標
-    private int z;      //z座標
+    private float x;      //X座標
+    private float y;      //Y座標
+    private float z;      //z座標
     public Slider HpSlider;
 
     public Character(string name, int hp, int power, int x, int y, int z)
@@ -47,25 +47,37 @@ public class Character : MonoBehaviour {
             return this.power;
         }
     }
-    public int X
+    public float X
     {
         get
         {
             return this.x;
         }
+        set
+        {
+            y = tmp.x;
+        }
     }
-    public int Y
+    public float Y
     {
         get
         {
             return this.y;
         }
+        set
+        {
+            x = tmp.x;
+        }
     }
-    public int Z
+    public float Z
     {
         get
         {
             return this.z;
+        }
+        set
+        {
+            z = tmp.z;
         }
     }
     
