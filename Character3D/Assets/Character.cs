@@ -10,8 +10,9 @@ public class Character : MonoBehaviour {
     private int power;  // 攻撃力
     private int x;      //X座標
     private int y;      //Y座標
+    private int z;      //z座標
 
-    public Character(string name, int hp, int power, int x, int y)
+    public Character(string name, int hp, int power, int x, int y, int z)
     {
         this.name = name;
         this.hp = hp;
@@ -19,6 +20,7 @@ public class Character : MonoBehaviour {
         this.power = power;
         this.x = x;
         this.y = y;
+        this.z = z;
     }
 
     
@@ -56,6 +58,13 @@ public class Character : MonoBehaviour {
         get
         {
             return this.y;
+        }
+    }
+    public int Z
+    {
+        get
+        {
+            return this.z;
         }
     }
     
