@@ -5,7 +5,7 @@ using UnityEngine;
 public class Friend : Character
 {
 
-    Friend(string name, int hp, int power, int x, int y):base(name, hp, power, x, y)
+    Friend(string name, int hp, int power, int x, int y, int z):base(name, hp, power, x, y, z)
     { 
 
     }

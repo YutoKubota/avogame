@@ -78,7 +78,6 @@ public class Character : MonoBehaviour {
     {
         this.hp -= damage;
         Debug.Log(damage + "のダメージを受けた");
-        /*
         if (this.hp <= 0)
         {
             hp = 0;
@@ -89,7 +88,6 @@ public class Character : MonoBehaviour {
         {
             Debug.Log(this.name + "の残りHP: " + this.hp);
         }
-        */
     }
 	// Use this for initialization
 	void Start () {

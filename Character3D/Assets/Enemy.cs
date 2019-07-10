@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Character
 {
 
-    Enemy(string name, int hp, int power, int x, int y) : base(name, hp, power, x, y)
+    Enemy(string name, int hp, int power, int x, int y, int z) : base(name, hp, power, x, y, z)
     {
   
     }
