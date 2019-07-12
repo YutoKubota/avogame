@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 609605727}
-  ch: {fileID: 0}
+  ch: {fileID: 839846210}
 --- !u!4 &2132039263
 Transform:
   m_ObjectHideFlags: 0

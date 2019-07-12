@@ -12,7 +12,7 @@ public class Character : MonoBehaviour {
         posi_x = this.transform.localPosition.x;
         posi_y = this.transform.localPosition.z;
         movepower = 4;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
