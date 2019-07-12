@@ -59,15 +59,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Character.cs" />
     <Compile Include="Assets\Script\Map.cs" />
     <Compile Include="Assets\Script\ScenesControler.cs" />
     <Compile Include="Assets\Script\Tip.cs" />
     <None Include="Assets\Material\Procedural_Materials\Read me.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/a/Desktop/game programming/Strategy_game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/avogame/Strategy_game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/a/Desktop/game programming/Strategy_game/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/avogame/Strategy_game/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

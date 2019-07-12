@@ -72,10 +72,19 @@ public class Map : MonoBehaviour {
         }
         Destroy(map_tip);
     }
-
-    // 移動範囲探索
-    public void StartSearch(int x, int y, int movepower)
+    // 移動
+    public void move(float pl_x,　float pl_y, Character ch)
     {
+        int x= (int)(pl_x / tipWidth);
+        int y = (int)(pl_y / tipLength);
+        ch.posi_x = x * tipWidth;
+        ch.posi_y = y * tipLength;
+    }
+    // 移動範囲探索
+    public void StartSearch(float posi_x, float posi_y, int movepower)
+    {
+        int x = (int)(posi_x / tipWidth);
+        int y = (int)(posi_y / tipLength);
         Reset_Range();
         Search4(x, y, movepower);
     }
