@@ -73,7 +73,7 @@ public class Map : MonoBehaviour {
         Destroy(map_tip);
     }
     // 移動
-    public void move(float pl_x,　float pl_y, Character ch)
+    public void Move(float pl_x,　float pl_y, Character ch)
     {
         int x= (int)(pl_x / tipWidth);
         int y = (int)(pl_y / tipLength);
