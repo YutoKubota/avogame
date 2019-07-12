@@ -11,7 +11,7 @@ public class Character : MonoBehaviour {
     private float x;      //X座標
     private float y;      //Y座標
     private float z;      //z座標
-    public Slider HpSlider;
+    //public Slider HpSlider;
 
     public Character(string name, int hp, int power, int x, int y, int z)
     {
