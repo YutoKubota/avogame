@@ -65,7 +65,7 @@ public class Map : MonoBehaviour {
                 // 複製したマス(スクリプト)を配列に格納する
                 tipArray[x, y] = copy_tip.GetComponent<Tip>();
                 // マップチップごとの移動コストを入力
-                tipArray[x, y].SetCost(1);
+                tipArray[x, y].Cost = 1;
                 // Stageオブジェクトの下に作成する
                 tipArray[x, y].transform.parent = stageObject.transform;
             }
@@ -73,51 +73,50 @@ public class Map : MonoBehaviour {
         Destroy(map_tip);
     }
     // 移動
-    public void Move(float pl_x,　float pl_y, Character ch)
+    public void Move(int x, int y, Character ch)
     {
-        int x= (int)(pl_x / tipWidth);
-        int y = (int)(pl_y / tipLength);
-        ch.posi_x = x * tipWidth;
-        ch.posi_y = y * tipLength;
+        ch.X = x;
+        ch.Y = y;
     }
     // 移動範囲探索
-    public void StartSearch(float posi_x, float posi_y, int movepower)
+    public void StartSearch(Character ch)
     {
-        int x = (int)(posi_x / tipWidth);
-        int y = (int)(posi_y / tipLength);
+        int x = ch.X;
+        int y = ch.Y;
+        int movepower = ch.MoveRange;
         Reset_Range();
         Search4(x, y, movepower);
     }
     public void Search4(int x,int y,int m)
     {
         int search_cost;
-        this.tipArray[x, y].SetMovepower(m);
-        this.tipArray[x, y].SetSearch_boll(true);
+        this.tipArray[x, y].Movepower = m;
+        this.tipArray[x, y].Search_bool = true;
 
         if (0 < x - 1 && x + 1 < arraysizex && 0 < y - 1 && y + 1 < arraysizey)
         {
 
             // 上方向
-            search_cost = m - this.tipArray[x, y - 1].GetCost();
-            if(this.tipArray[x, y -1].GetMovepower() < search_cost)
+            search_cost = m - this.tipArray[x, y - 1].Cost;
+            if(this.tipArray[x, y -1].Movepower < search_cost)
             {
                 Search4(x, y - 1, search_cost);
             }
             // 下方向
-            search_cost = m - this.tipArray[x, y + 1].GetCost();
-            if (this.tipArray[x, y + 1].GetMovepower() < search_cost)
+            search_cost = m - this.tipArray[x, y + 1].Cost;
+            if (this.tipArray[x, y + 1].Movepower < search_cost)
             {
                 Search4(x, y + 1, search_cost);
             }
             // 左方向
-            search_cost = m - this.tipArray[x - 1, y].GetCost();
-            if (this.tipArray[x - 1, y].GetMovepower() < search_cost)
+            search_cost = m - this.tipArray[x - 1, y].Cost;
+            if (this.tipArray[x - 1, y].Movepower < search_cost)
             {
                 Search4(x - 1, y, search_cost);
             }
             // 右方向
-            search_cost = m - this.tipArray[x + 1, y].GetCost();
-            if (this.tipArray[x + 1, y].GetMovepower() < search_cost)
+            search_cost = m - this.tipArray[x + 1, y].Cost;
+            if (this.tipArray[x + 1, y].Movepower < search_cost)
             {
                 Search4(x + 1, y, search_cost);
             }
@@ -129,9 +128,52 @@ public class Map : MonoBehaviour {
         {
             for(int x = 0; x < arraysizex; x++)
             {
-                this.tipArray[x, y].SetSearch_boll(false);
+                this.tipArray[x, y].Search_bool = false;
+                this.tipArray[x, y].Attack_bool = false;
+                this.tipArray[x, y].Movepower = -1;
+                this.tipArray[x, y].Attack_range = -1;
             }
         }
+    }
+    // 攻撃範囲
+    public void StartAttackRange(Character ch, int range)
+    {
+        int x = ch.X;
+        int y = ch.Y;
+        AttackRange(x, y, range);
+    }
+    private void AttackRange(int x, int y, int range)
+    {
+        int attack_cost;
+        this.tipArray[x, y].Attack_range = range;
+        this.tipArray[x, y].Attack_bool = true;
+        if(0 < x - 1 && x + 1 < arraysizex && 0 < y - 1 && y + 1 < arraysizey)
+        {
+            attack_cost = range - 1;
+            if(this.tipArray[x, y - 1].Attack_range < attack_cost)
+            {
+                AttackRange(x, y - 1, attack_cost);
+            }
+            attack_cost = range - 1;
+            if(this.tipArray[x, y + 1].Attack_range < attack_cost)
+            {
+                AttackRange(x, y + 1, attack_cost);
+            }
+            attack_cost = range - 1;
+            if(this.tipArray[x - 1, y].Attack_range < attack_cost)
+            {
+                AttackRange(x - 1, y, attack_cost);
+            }
+            attack_cost = range - 1;
+            if(this.tipArray[x + 1, y].Attack_range < attack_cost)
+            {
+                AttackRange(x + 1, y, attack_cost);
+            }
+        }
+    }
+    public Tip GetArray(int x, int y)
+    {
+        return tipArray[x, y];
     }
     // 最短経路
 }

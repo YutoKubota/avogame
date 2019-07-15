@@ -59,9 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Character.cs" />
+    <Compile Include="Assets\Script\MainCamera.cs" />
     <Compile Include="Assets\Script\Map.cs" />
-    <Compile Include="Assets\Script\ScenesControler.cs" />
     <Compile Include="Assets\Script\Tip.cs" />
     <None Include="Assets\Material\Procedural_Materials\Read me.txt" />
     <Reference Include="UnityEditor.StandardEvents">

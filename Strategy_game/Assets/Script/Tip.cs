@@ -6,10 +6,12 @@ public class Tip : MonoBehaviour
 {
     private int cost;
     private bool search_bool = false;
+    private bool attack_bool = false;
     private Color default_color;
     private Color control_color;
     public Material material_color;
     private int movepower = -1;
+    private int attack_range = -1;
 
     // Use this for initialization
     void Start()
@@ -28,28 +30,64 @@ public class Tip : MonoBehaviour
         }
     }
 
-    public void SetCost(int cost)
+    // 移動コスト
+    public int Cost
     {
-        this.cost = cost;
+        set
+        {
+            this.cost = value;
+        }
+        get
+        {
+            return this.cost;
+        }
     }
-    public int GetCost()
+    // 移動範囲
+    public bool Search_bool
     {
-        return this.cost;
+        set
+        {
+            this.search_bool = value;
+        }
+        get
+        {
+            return this.search_bool;
+        }
     }
-    public void SetSearch_boll(bool judge)
+    //  攻撃範囲
+    public bool Attack_bool
     {
-        this.search_bool = judge;
+        set
+        {
+            this.attack_bool = value;
+        }
+        get
+        {
+            return this.attack_bool;
+        }
     }
-    public bool GetSearch_bool()
+    // 行動力
+    public int Movepower
     {
-        return this.search_bool;
+        set
+        {
+            this.movepower = value;
+        }
+        get
+        {
+            return this.movepower;
+        }
     }
-    public void SetMovepower(int m)
+    // 攻撃範囲
+    public int Attack_range
     {
-        this.movepower = m;
-    }
-    public int GetMovepower()
-    {
-        return this.movepower;
+        set
+        {
+            this.attack_range = value;
+        }
+        get
+        {
+            return this.attack_range;
+        }
     }
 }
